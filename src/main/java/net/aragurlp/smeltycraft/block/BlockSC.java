@@ -2,6 +2,7 @@ package net.aragurlp.smeltycraft.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.aragurlp.smeltycraft.creativetab.CreativeTabSC;
 import net.aragurlp.smeltycraft.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,6 +13,7 @@ public class BlockSC extends Block
     public BlockSC(Material material)
     {
         super(material);
+        this.setCreativeTab(CreativeTabSC.SC_TAB);
     }
 
     public BlockSC()
