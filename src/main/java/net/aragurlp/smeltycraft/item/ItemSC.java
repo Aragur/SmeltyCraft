@@ -2,6 +2,7 @@ package net.aragurlp.smeltycraft.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.aragurlp.smeltycraft.creativetab.CreativeTabSC;
 import net.aragurlp.smeltycraft.reference.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -12,6 +13,7 @@ public class ItemSC extends Item
     public ItemSC()
     {
         super();
+        this.setCreativeTab(CreativeTabSC.SC_TAB);
     }
 
     @Override
