@@ -1,3 +1,4 @@
 # Item localization
 item.smeltycraft:testItem.name=The Ultimate Test Item
 tile.smeltycraft:testBlock.name=The Ultimate Test Block
+itemGroup.SmeltyCraft=Smelty Craft
