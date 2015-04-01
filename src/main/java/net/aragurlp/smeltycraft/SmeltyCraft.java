@@ -7,6 +7,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.aragurlp.smeltycraft.handler.ConfigHandler;
+import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.aragurlp.smeltycraft.init.ModItems;
 import net.aragurlp.smeltycraft.proxy.IProxy;
 import net.aragurlp.smeltycraft.reference.Reference;
@@ -28,6 +29,7 @@ public class SmeltyCraft {
         FMLCommonHandler.instance().bus().register(new ConfigHandler());
 
         ModItems.init();
+        ModBlocks.init();
 
         LogHelper.info("Pre Initialization Complete!");
     }
