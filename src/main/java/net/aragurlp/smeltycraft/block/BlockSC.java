@@ -20,6 +20,20 @@ public class BlockSC extends Block
         this.setCreativeTab(CreativeTabSC.SC_TAB);
     }
 
+    /**
+     * Simply set's if the block should show in the CreativeTab or not.
+     * @param material  Material the block should have
+     * @param inCreativeTab Show/Hide in CreativeTab
+     */
+    public BlockSC(Material material, Boolean inCreativeTab)
+    {
+        super(material);
+        if(inCreativeTab)
+        {
+            this.setCreativeTab(CreativeTabSC.SC_TAB);
+        }
+    }
+
     public BlockSC()
     {
         this(Material.rock);
