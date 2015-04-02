@@ -5,8 +5,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockMultiStone extends BlockMultiBlock {
-    public BlockMultiStone()
+public class BlockTestMultiBlock extends BlockContainerSC {
+    public BlockTestMultiBlock()
     {
         super(Material.rock);
         this.setBlockName("stoneMultiBlock");
