@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.aragurlp.smeltycraft.client.handler.KeyInputEventHandler;
 import net.aragurlp.smeltycraft.handler.ConfigHandler;
+import net.aragurlp.smeltycraft.handler.GuiHandler;
 import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.aragurlp.smeltycraft.init.ModItems;
 import net.aragurlp.smeltycraft.init.Recipes;
@@ -47,6 +48,7 @@ public class SmeltyCraft {
 
         Recipes.init();
         TileEntitys.init();
+        GuiHandler.init();
 
         LogHelper.info("Initialization Complete!");
     }
