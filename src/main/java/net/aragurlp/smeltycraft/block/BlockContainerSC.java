@@ -12,15 +12,29 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockMultiBlock extends BlockContainer
+public class BlockContainerSC extends BlockContainer
 {
-    public BlockMultiBlock(Material material)
+    public BlockContainerSC(Material material)
     {
         super(material);
         this.setCreativeTab(CreativeTabSC.SC_TAB);
     }
 
-    public BlockMultiBlock()
+    /**
+     * Simply set's if the block should show in the CreativeTab or not.
+     * @param material  Material the block should have
+     * @param inCreativeTab Show/Hide in CreativeTab
+     */
+    public BlockContainerSC(Material material, Boolean inCreativeTab)
+    {
+        super(material);
+        if(inCreativeTab)
+        {
+            this.setCreativeTab(CreativeTabSC.SC_TAB);
+        }
+    }
+
+    public BlockContainerSC()
     {
         this(Material.rock);
     }
