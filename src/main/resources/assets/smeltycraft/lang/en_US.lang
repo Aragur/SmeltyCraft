@@ -1,4 +1,14 @@
-# Item localization
+# Items
 item.smeltycraft:testItem.name=The Ultimate Test Item
+
+# Blocks
 tile.smeltycraft:testBlock.name=The Ultimate Test Block
-itemGroup.smeltycraft=Smelty Craft
+tile.smeltycraft:stoneMultiBlock.name=The Ultimate Test §a§lMULTI-Block§r
+
+#Creative Tab
+itemGroup.smeltycraft=SmeltyCraft
+
+# Keys
+keys.smeltycraft.category=SmeltyCraft
+keys.smeltycraft.charge=Charge
+keys.smeltycraft.release=Release

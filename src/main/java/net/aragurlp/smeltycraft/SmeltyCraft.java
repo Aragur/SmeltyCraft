@@ -11,6 +11,7 @@ import net.aragurlp.smeltycraft.handler.ConfigHandler;
 import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.aragurlp.smeltycraft.init.ModItems;
 import net.aragurlp.smeltycraft.init.Recipes;
+import net.aragurlp.smeltycraft.init.TileEntitys;
 import net.aragurlp.smeltycraft.proxy.IProxy;
 import net.aragurlp.smeltycraft.reference.Reference;
 import net.aragurlp.smeltycraft.util.LogHelper;
@@ -45,6 +46,7 @@ public class SmeltyCraft {
         FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
 
         Recipes.init();
+        TileEntitys.init();
 
         LogHelper.info("Initialization Complete!");
     }
