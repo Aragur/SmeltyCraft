@@ -8,6 +8,9 @@ tile.smeltycraft:stoneMultiBlock.name=The Ultimate Test §a§lMULTI-Block§r
 #Creative Tab
 itemGroup.smeltycraft=SmeltyCraft
 
+#Container
+#container.smeltycraft.smeltingfurnace=Smelting Furnace
+
 # Keys
 keys.smeltycraft.category=SmeltyCraft
 keys.smeltycraft.charge=Charge
