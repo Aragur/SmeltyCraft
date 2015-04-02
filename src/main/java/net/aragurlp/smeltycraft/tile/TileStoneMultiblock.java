@@ -1,6 +1,6 @@
 package net.aragurlp.smeltycraft.tile;
 
-import net.aragurlp.smeltycraft.block.BlockMultiStone;
+import net.aragurlp.smeltycraft.block.BlockTestMultiBlock;
 import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
@@ -35,9 +35,9 @@ public class TileStoneMultiblock extends TileMultiBlock
         for (int x = xCoord - 1; x < xCoord + 2; x++)
             for (int y = yCoord -1; y < yCoord + 2; y++)
                 for (int z = zCoord - 1; z < zCoord + 2; z++) {
-                    if (worldObj.getBlock(x, y, z) == ModBlocks.testBlock /*|| (worldObj.getBlock(x, y, z) instanceof BlockMultiStone)*/){
+                    if (worldObj.getBlock(x, y, z) == ModBlocks.testBlock /*|| (worldObj.getBlock(x, y, z) instanceof BlockTestMultiBlock)*/){
                         worldObj.setBlock(x, y, z, Blocks.air);
-                    } else if(worldObj.getBlock(x, y, z) instanceof BlockMultiStone) {
+                    } else if(worldObj.getBlock(x, y, z) instanceof BlockTestMultiBlock) {
                         worldObj.setBlock(x, y, z, Blocks.diamond_block);
                     }
                 }
