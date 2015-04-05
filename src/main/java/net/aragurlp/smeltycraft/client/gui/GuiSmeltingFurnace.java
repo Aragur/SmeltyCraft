@@ -2,7 +2,7 @@ package net.aragurlp.smeltycraft.client.gui;
 
 import net.aragurlp.smeltycraft.container.ContainerSmeltingFurnace;
 import net.aragurlp.smeltycraft.reference.Reference;
-import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
+import net.aragurlp.smeltycraft.tile.TileEntitySmeltingFurnace;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -14,9 +14,9 @@ public class GuiSmeltingFurnace extends GuiContainer
 {
     public static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "textures/gui/furnace.png");
 
-    public TileSmeltingFurnace smeltingFurnace;
+    public TileEntitySmeltingFurnace smeltingFurnace;
 
-    public GuiSmeltingFurnace(InventoryPlayer inventoryPlayer, TileSmeltingFurnace entity)
+    public GuiSmeltingFurnace(InventoryPlayer inventoryPlayer, TileEntitySmeltingFurnace entity)
     {
         super(new ContainerSmeltingFurnace(inventoryPlayer, entity));
 

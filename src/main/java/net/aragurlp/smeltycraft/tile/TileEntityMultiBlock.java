@@ -6,7 +6,7 @@ import net.minecraft.tileentity.TileEntity;
 /**
  *  Master class for all MultiBlocks, other MultiBlocks inherit from it
  */
-public abstract class TileMultiBlock extends TileEntity
+public abstract class TileEntityMultiBlock extends TileEntity
 {
     private boolean hasMaster, isMaster;
     private int masterX, masterY, masterZ;
@@ -64,7 +64,7 @@ public abstract class TileMultiBlock extends TileEntity
     public boolean checkForMaster()
     {
         TileEntity tile = worldObj.getTileEntity(masterX, masterY, masterZ);
-        return (tile != null && (tile instanceof  TileMultiBlock));
+        return (tile != null && (tile instanceof TileEntityMultiBlock));
     }
 
     /**

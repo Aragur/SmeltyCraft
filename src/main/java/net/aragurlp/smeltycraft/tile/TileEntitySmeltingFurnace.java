@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileSmeltingFurnace extends TileEntity implements ISidedInventory{
+public class TileEntitySmeltingFurnace extends TileEntity implements ISidedInventory{
 
     private String localizedName;
 

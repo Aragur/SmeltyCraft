@@ -2,7 +2,7 @@ package net.aragurlp.smeltycraft.container;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
+import net.aragurlp.smeltycraft.tile.TileEntitySmeltingFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -14,7 +14,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class ContainerSmeltingFurnace extends Container
 {
-    private TileSmeltingFurnace smeltingFurnace;
+    private TileEntitySmeltingFurnace smeltingFurnace;
     /** The time this furnace will continue for (fuel) */
     public int lastBurnTime;
     /** The start time for this fuel */
@@ -22,7 +22,7 @@ public class ContainerSmeltingFurnace extends Container
     /** How much time left before cooked */
     public int lastCookTime;
 
-    public ContainerSmeltingFurnace(InventoryPlayer inventory, TileSmeltingFurnace tileentity)
+    public ContainerSmeltingFurnace(InventoryPlayer inventory, TileEntitySmeltingFurnace tileentity)
     {
         this.smeltingFurnace = tileentity;
 
@@ -114,7 +114,7 @@ public class ContainerSmeltingFurnace extends Container
                         return null;
                     }
                 }
-                else if(TileSmeltingFurnace.isItemFuel(itemStack1))
+                else if(TileEntitySmeltingFurnace.isItemFuel(itemStack1))
                 {
                     if(!this.mergeItemStack(itemStack1, 1, 2, false))
                     {

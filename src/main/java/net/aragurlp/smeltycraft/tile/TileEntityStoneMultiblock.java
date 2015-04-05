@@ -5,7 +5,7 @@ import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class TileStoneMultiblock extends TileMultiBlock
+public class TileEntityStoneMultiblock extends TileEntityMultiBlock
 {
     @Override
     public void doMultiBlockStuff()

@@ -7,7 +7,7 @@ import net.aragurlp.smeltycraft.SmeltyCraft;
 import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.aragurlp.smeltycraft.reference.GUIs;
 import net.aragurlp.smeltycraft.reference.Reference;
-import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
+import net.aragurlp.smeltycraft.tile.TileEntitySmeltingFurnace;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -118,7 +118,7 @@ public class BlockSmeltingFurnace extends BlockContainerSC
 
     public TileEntity createNewTileEntity(World world, int metadata)
     {
-        return new TileSmeltingFurnace();
+        return new TileEntitySmeltingFurnace();
     }
 
 //    @Override
@@ -154,7 +154,7 @@ public class BlockSmeltingFurnace extends BlockContainerSC
 
         if(itemStack.hasDisplayName())
         {
-            ((TileSmeltingFurnace)world.getTileEntity(x, y, z)).setGuiDisplayName(itemStack.getDisplayName());
+            ((TileEntitySmeltingFurnace)world.getTileEntity(x, y, z)).setGuiDisplayName(itemStack.getDisplayName());
         }
 
     }

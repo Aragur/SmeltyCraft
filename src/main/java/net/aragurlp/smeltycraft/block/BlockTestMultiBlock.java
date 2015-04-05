@@ -1,6 +1,6 @@
 package net.aragurlp.smeltycraft.block;
 
-import net.aragurlp.smeltycraft.tile.TileStoneMultiblock;
+import net.aragurlp.smeltycraft.tile.TileEntityStoneMultiblock;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -15,6 +15,6 @@ public class BlockTestMultiBlock extends BlockContainerSC {
     @Override
     public TileEntity createNewTileEntity(World world, int metadata)
     {
-        return new TileStoneMultiblock();
+        return new TileEntityStoneMultiblock();
     }
 }

@@ -2,12 +2,12 @@ package net.aragurlp.smeltycraft.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.aragurlp.smeltycraft.reference.Reference;
-import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
-import net.aragurlp.smeltycraft.tile.TileStoneMultiblock;
+import net.aragurlp.smeltycraft.tile.TileEntitySmeltingFurnace;
+import net.aragurlp.smeltycraft.tile.TileEntityStoneMultiblock;
 
 public class TileEntitys {
-    public static final Class tileStoneMultiblock = TileStoneMultiblock.class;
-    public static final Class tileSmeltingFurnace = TileSmeltingFurnace.class;
+    public static final Class tileStoneMultiblock = TileEntityStoneMultiblock.class;
+    public static final Class tileSmeltingFurnace = TileEntitySmeltingFurnace.class;
 
     public static void init()
     {

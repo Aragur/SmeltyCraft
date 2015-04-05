@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.aragurlp.smeltycraft.creativetab.CreativeTabSC;
 import net.aragurlp.smeltycraft.reference.Reference;
-import net.aragurlp.smeltycraft.tile.TileMultiBlock;
+import net.aragurlp.smeltycraft.tile.TileEntityMultiBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -57,9 +57,9 @@ public class BlockContainerSC extends BlockContainer
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
     {
         TileEntity tile = world.getTileEntity(x, y, z);
-        if(tile != null && (tile instanceof TileMultiBlock))
+        if(tile != null && (tile instanceof TileEntityMultiBlock))
         {
-            TileMultiBlock multiBlock = (TileMultiBlock) tile;
+            TileEntityMultiBlock multiBlock = (TileEntityMultiBlock) tile;
             if(multiBlock.hasMaster())
             {
                 if(multiBlock.isMaster())
