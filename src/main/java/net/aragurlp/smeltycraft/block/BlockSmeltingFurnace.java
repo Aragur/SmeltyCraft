@@ -8,6 +8,7 @@ import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.aragurlp.smeltycraft.reference.GUIs;
 import net.aragurlp.smeltycraft.reference.Reference;
 import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
+import net.aragurlp.smeltycraft.util.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -45,7 +46,7 @@ public class BlockSmeltingFurnace extends BlockContainerSC
         this.setLightLevel(this.isActive ? 0.9F : 0F);
     }
 
-    @Override
+//    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
@@ -113,17 +114,18 @@ public class BlockSmeltingFurnace extends BlockContainerSC
         }
     }
 
-    public TileEntity createNewTileEntity(World world)
+    public TileEntity createNewTileEntity(World world, int metadata)
     {
         return new TileSmeltingFurnace();
     }
 
+//    @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
     {
-        if(!world.isRemote)
-        {
+//        if(!world.isRemote)
+//        {
             FMLNetworkHandler.openGui(player, SmeltyCraft.instance, GUIs.SMELTING_FURNACE, world, x, y, z);
-        }
+//        }
         return true;
     }
 
@@ -171,7 +173,7 @@ public class BlockSmeltingFurnace extends BlockContainerSC
 
         keepInventory = false;
 
-        worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 2);
+        worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, i, 2);
 
         if(tileEntity != null)
         {
@@ -180,19 +182,16 @@ public class BlockSmeltingFurnace extends BlockContainerSC
         }
     }
 
-    @Override
     public boolean hasComparatorInputOverride()
     {
         return true;
     }
 
-    @Override
     public int getComparatorInputOverride(World world, int x, int y, int z, int i)
     {
         return Container.calcRedstoneFromInventory((IInventory)world.getTileEntity(x, y, z));
     }
 
-    @Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y , int z, EntityPlayer player){
         return new ItemStack(ModBlocks.smeltingfurnace);
     }
