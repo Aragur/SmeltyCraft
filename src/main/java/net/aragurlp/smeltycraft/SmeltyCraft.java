@@ -6,6 +6,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import net.aragurlp.smeltycraft.client.handler.KeyInputEventHandler;
 import net.aragurlp.smeltycraft.handler.ConfigHandler;
 import net.aragurlp.smeltycraft.handler.GuiHandler;
@@ -29,7 +30,6 @@ public class SmeltyCraft {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-
         ConfigHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigHandler());
 
@@ -48,7 +48,7 @@ public class SmeltyCraft {
 
         Recipes.init();
         TileEntitys.init();
-        GuiHandler.init();
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
         LogHelper.info("Initialization Complete!");
     }
