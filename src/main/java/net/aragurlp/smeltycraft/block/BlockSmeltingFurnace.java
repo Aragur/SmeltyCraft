@@ -8,7 +8,6 @@ import net.aragurlp.smeltycraft.init.ModBlocks;
 import net.aragurlp.smeltycraft.reference.GUIs;
 import net.aragurlp.smeltycraft.reference.Reference;
 import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
-import net.aragurlp.smeltycraft.util.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -38,7 +37,7 @@ public class BlockSmeltingFurnace extends BlockContainerSC
 
     public BlockSmeltingFurnace(boolean isActive)
     {
-        super(Material.rock, true);
+        super(Material.rock, isActive ? false : true);
         this.isActive = isActive;
         this.setBlockName(this.isActive ? "smeltingFurnace_lit" : "smeltingFurnace");
         this.setStepSound(soundTypeStone);
@@ -46,7 +45,6 @@ public class BlockSmeltingFurnace extends BlockContainerSC
         this.setLightLevel(this.isActive ? 0.9F : 0F);
     }
 
-//    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
@@ -58,6 +56,10 @@ public class BlockSmeltingFurnace extends BlockContainerSC
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata)
     {
+        if(metadata  == 0 && side == 3)
+        {
+            return this.iconFront;
+        }
         if(side <= 1)
         {
             return this.iconTop;
