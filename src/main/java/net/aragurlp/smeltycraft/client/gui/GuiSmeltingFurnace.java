@@ -1,12 +1,14 @@
 package net.aragurlp.smeltycraft.client.gui;
 
+import net.aragurlp.smeltycraft.container.ContainerSmeltingFurnace;
 import net.aragurlp.smeltycraft.reference.Reference;
 import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GuiSmeltingFurnace extends GuiContainer
 {
@@ -14,9 +16,9 @@ public class GuiSmeltingFurnace extends GuiContainer
 
     public TileSmeltingFurnace smeltingFurnace;
 
-    public GuiSmeltingFurnace(InventoryPlayer inventorryPlayer, TileSmeltingFurnace entity)
+    public GuiSmeltingFurnace(InventoryPlayer inventoryPlayer, TileSmeltingFurnace entity)
     {
-        super(new ContainerSmeltingFurnace(inventorryPlayer, entity));
+        super(new ContainerSmeltingFurnace(inventoryPlayer, entity));
 
         this.smeltingFurnace = entity;
 
@@ -33,10 +35,12 @@ public class GuiSmeltingFurnace extends GuiContainer
     }
 
     @Override
-    public void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_)
+    public void drawGuiContainerBackgroundLayer(float f, int i, int j)
     {
+        GL11.glColor4f(1F, 1F, 1F, 1F);
 
+        Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
+
+        drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
     }
-
-
 }
