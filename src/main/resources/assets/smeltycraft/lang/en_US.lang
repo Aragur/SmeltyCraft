@@ -4,12 +4,13 @@ item.smeltycraft:testItem.name=The Ultimate Test Item
 # Blocks
 tile.smeltycraft:testBlock.name=The Ultimate Test Block
 tile.smeltycraft:stoneMultiBlock.name=The Ultimate Test §a§lMULTI-Block§r
+tile.smeltycraft:smeltingFurnace.name=Smelting Furnace
 
 #Creative Tab
 itemGroup.smeltycraft=SmeltyCraft
 
 #Container
-#container.smeltycraft.smeltingfurnace=Smelting Furnace
+container.smeltycraft.smeltingfurnace=Smelting Furnace
 
 # Keys
 keys.smeltycraft.category=SmeltyCraft
