@@ -8,6 +8,8 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileSmeltingFurnace extends TileEntity implements ISidedInventory{
@@ -120,6 +122,61 @@ public class TileSmeltingFurnace extends TileEntity implements ISidedInventory{
         return 64;
     }
 
+    public void readFromNBT(NBTTagCompound nbt)
+    {
+        super.readFromNBT(nbt);
+
+        NBTTagList list = nbt.getTagList("items", 10); //10
+        this.slots = new ItemStack[this.getSizeInventory()];
+
+        for(int i = 0; i < list.tagCount(); i++)
+        {
+            NBTTagCompound compound = list.getCompoundTagAt(i);
+            byte b = compound.getByte("slot");
+
+            if(b >= 0 && b < this.slots.length)
+            {
+                this.slots[b] = ItemStack.loadItemStackFromNBT(compound);
+            }
+        }
+
+        this.burnTime = nbt.getShort("burnTime");
+        this.cookTime = nbt.getShort("cookTime");
+        this.currentItemBurnTime = getItemBurnTime(this.slots[1]);
+
+        if(nbt.hasKey("customName"))
+        {
+            this.localizedName = nbt.getString("customName");
+        }
+    }
+
+    public void writeToNBT(NBTTagCompound nbt)
+    {
+        super.writeToNBT(nbt);
+
+        nbt.setShort("burnTime", (short) this.burnTime);
+        nbt.setShort("cookTime", (short) this.cookTime);
+
+        NBTTagList list = new NBTTagList();
+
+        for(int i = 0; i < this.slots.length; i++)
+        {
+            if(this.slots[i] != null)
+            {
+                NBTTagCompound compound = new NBTTagCompound();
+                compound.setByte("slot", (byte)i);
+                this.slots[i].writeToNBT(compound);
+                list.appendTag(compound);
+            }
+        }
+        nbt.setTag("items", list);
+
+        if(this.localizedName != null)
+        {
+            nbt.setString("customName", this.localizedName);
+        }
+    }
+
     @Override
     public boolean isUseableByPlayer(EntityPlayer player) {
         return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
@@ -135,7 +192,7 @@ public class TileSmeltingFurnace extends TileEntity implements ISidedInventory{
 
     }
 
-    private boolean isBurning()
+    public boolean isBurning()
     {
         return this.burnTime > 0;
     }
@@ -282,5 +339,19 @@ public class TileSmeltingFurnace extends TileEntity implements ISidedInventory{
     @Override
     public boolean canExtractItem(int i, ItemStack itemStack, int j) {
         return j != 0 || i != 1 || itemStack.getItem() == Items.bucket;
+    }
+
+    public int getBurnTimeRemainingScaled(int i)
+    {
+        if(this.currentItemBurnTime == 0)
+        {
+            this.currentItemBurnTime = this.furnaceSpeed;
+        }
+        return this.burnTime * i / this.currentItemBurnTime;
+    }
+
+    public int getCookProgressScaled(int i)
+    {
+        return this.cookTime * i /this.furnaceSpeed;
     }
 }
