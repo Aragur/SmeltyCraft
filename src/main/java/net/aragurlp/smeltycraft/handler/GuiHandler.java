@@ -4,8 +4,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import net.aragurlp.smeltycraft.container.ContainerSmeltingFurnace;
 import net.aragurlp.smeltycraft.client.gui.GuiSmeltingFurnace;
 import net.aragurlp.smeltycraft.reference.GUIs;
-import net.aragurlp.smeltycraft.tile.TileSmeltingFurnace;
-import net.aragurlp.smeltycraft.util.LogHelper;
+import net.aragurlp.smeltycraft.tile.TileEntitySmeltingFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -26,9 +25,9 @@ public class GuiHandler implements IGuiHandler{
             switch(ID)
             {
                 case GUIs.SMELTING_FURNACE :
-                    if(entity instanceof TileSmeltingFurnace)
+                    if(entity instanceof TileEntitySmeltingFurnace)
                     {
-                        return new ContainerSmeltingFurnace(player.inventory, (TileSmeltingFurnace) entity);
+                        return new ContainerSmeltingFurnace(player.inventory, (TileEntitySmeltingFurnace) entity);
                     }
                     return null;
             }
@@ -46,9 +45,9 @@ public class GuiHandler implements IGuiHandler{
             switch(ID)
             {
                 case GUIs.SMELTING_FURNACE :
-                    if(entity instanceof TileSmeltingFurnace)
+                    if(entity instanceof TileEntitySmeltingFurnace)
                     {
-                        return new GuiSmeltingFurnace(player.inventory, (TileSmeltingFurnace) entity);
+                        return new GuiSmeltingFurnace(player.inventory, (TileEntitySmeltingFurnace) entity);
                     }
                     return null;
             }
