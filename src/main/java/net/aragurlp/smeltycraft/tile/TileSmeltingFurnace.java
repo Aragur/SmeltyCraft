@@ -3,10 +3,10 @@ package net.aragurlp.smeltycraft.tile;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.aragurlp.smeltycraft.block.BlockSmeltingFurnace;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntity;
 
@@ -21,7 +21,7 @@ public class TileSmeltingFurnace extends TileEntity implements ISidedInventory{
     private ItemStack[] slots = new ItemStack[3];
 
     /** Furnace Speed */
-    public int furnaceSpeed = 200; //200 = Normal Furnace; 100 = 2x faster
+    public int furnaceSpeed = 50; //200 = Normal Furnace; 100 = 2x faster
     /** The time this furnace will continue for (fuel) */
     public int burnTime;
     /** The start time for this fuel */
@@ -247,6 +247,15 @@ public class TileSmeltingFurnace extends TileEntity implements ISidedInventory{
         }
         else
         {
+            Item item = itemStack.getItem();
+            if(item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 200;
+            if(item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 200;
+            if(item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD")) return 200;
+            if(item == Items.stick) return 100;
+            if(item == Items.coal) return 1600;
+            if(item == Items.lava_bucket) return 20000;
+            if(item == Item.getItemFromBlock(Blocks.sapling)) return 100;
+            if(item == Items.blaze_rod) return 2400;
             return GameRegistry.getFuelValue(itemStack);
         }
     }
