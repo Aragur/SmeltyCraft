@@ -54,6 +54,27 @@ public class ContainerSmeltingFurnace extends Container
     public void detectAndSendChanges()
     {
         super.detectAndSendChanges();
+
+        for(int i = 0; i < this.crafters.size(); i++)
+        {
+            ICrafting iCrafting = (ICrafting)this.crafters.get(i);
+
+            if(this.lastCookTime != this.smeltingFurnace.cookTime)
+            {
+                iCrafting.sendProgressBarUpdate(this, 0, this.smeltingFurnace.cookTime);
+            }
+            if(this.lastBurnTime != this.smeltingFurnace.burnTime)
+            {
+                iCrafting.sendProgressBarUpdate(this, 1, this.smeltingFurnace.burnTime);
+            }
+            if(this.lastCurrentItemBurnTime != this.smeltingFurnace.currentItemBurnTime)
+            {
+                iCrafting.sendProgressBarUpdate(this, 2, this.smeltingFurnace.currentItemBurnTime);
+            }
+        }
+        this.lastCookTime = this.smeltingFurnace.cookTime;
+        this.lastBurnTime = this.smeltingFurnace.burnTime;
+        this.lastCurrentItemBurnTime = this.smeltingFurnace.currentItemBurnTime;
     }
 
     @SideOnly(Side.CLIENT)
