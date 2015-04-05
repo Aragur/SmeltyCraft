@@ -1,7 +1,10 @@
 package net.aragurlp.smeltycraft.tile;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.aragurlp.smeltycraft.block.BlockSmeltingFurnace;
+import net.aragurlp.smeltycraft.util.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -11,8 +14,13 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import sun.rmi.runtime.Log;
 
-public class TileEntitySmeltingFurnace extends TileEntity implements ISidedInventory{
+import java.util.Random;
+
+public class TileEntitySmeltingFurnace extends TileEntity implements ISidedInventory
+{
+    Random random = new Random();
 
     private String localizedName;
 
@@ -198,10 +206,11 @@ public class TileEntitySmeltingFurnace extends TileEntity implements ISidedInven
     }
 
     @Override
-    public void updateEntity()
-    {
+    public void updateEntity() {
         boolean flag = this.burnTime > 0;
         boolean flag1 = false;
+
+        BlockSmeltingFurnace.doParticles(this.worldObj, this.xCoord, this.yCoord, this.zCoord, new Random());
 
         if(this.burnTime > 0)
         {
@@ -304,6 +313,7 @@ public class TileEntitySmeltingFurnace extends TileEntity implements ISidedInven
         }
         else
         {
+            //TODO Add Blocks (Wood, CoalBlock, Logs etc.)
             Item item = itemStack.getItem();
             if(item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 200;
             if(item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 200;
