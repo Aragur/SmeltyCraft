@@ -55,7 +55,7 @@ public class TileEntitySmeltingFurnace extends TileEntity implements ISidedInven
 
     public String getInvName()
     {
-        return this.isInvNameLocalized() ? this.localizedName : "container.smeltycraft.smeltingfurnace";
+        return this.isInvNameLocalized() ? this.localizedName : "container.smeltycraft.smeltingFurnace";
     }
 
     @Override
